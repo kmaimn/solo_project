@@ -1,1 +1,49 @@
 <h3>home view</h3>
+<div class="row">
+  <div class="inventoryContainer col-md-8">
+    <div class="inventory">
+      <h3 class="heading">Dairy</h3>
+      <label class="pantry-1" ng-repeat="ingredient in pantry | filter: {category: 'dairy'}">
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+      </label>
+    </div>
+
+    <div class="inventory">
+      <h3 class="heading">Grains</h3>
+      <label class="pantry-2" ng-repeat="ingredient in pantry | filter: {category: 'grains'}">
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+      </label>
+    </div>
+
+    <div class="inventory">
+      <h3 class="heading">Produce</h3>
+      <label class="pantry-3" ng-repeat="ingredient in pantry | filter: {category: 'produce'}">
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+      </label>
+    </div>
+
+    <div class="inventory">
+      <h3 class="heading">Proteins</h3>
+      <label class="pantry-4" ng-repeat="ingredient in pantry | filter: {category: 'protein'}">
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+      </label>
+    </div>
+
+    <div class="inventory">
+      <h3 class="heading">Other</h3>
+      <label class="pantry-5" ng-repeat="ingredient in pantry | filter: {category: 'other'}">
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+      </label>
+    </div>
+  </div>
+
+  <div class="ingredientsContainer col-md-3">
+    <h3>Ingredients List:</h3>
+    <div ng-repeat="stuff in selectedIngredients">
+      <li>{{stuff | unconcat}}</li>
+    </div>
+    <a class="btn btn-default submitButton" ng-click="getIngredients()">Submit</a>
+
+  </div>
+
+</div>

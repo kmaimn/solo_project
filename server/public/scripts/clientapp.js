@@ -1,8 +1,8 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['checklist-model', 'ngRoute']);
 
 app.config(['$routeProvider', function ($routeProvider) {
-  //routes will go here: home, search results, add, favorites
 
+  //routes will go here: home, search results, add, favorites
   $routeProvider
     .when('/home', {
       templateUrl: '/public/views/partials/home.html',
@@ -24,3 +24,21 @@ app.config(['$routeProvider', function ($routeProvider) {
       redirectTo: "/home"
     });
 }]);
+
+app.filter('concat', function () {
+  return function (input) {
+    return input.replace(/ /g, '+');
+  }
+});
+
+app.filter('unconcat', function () {
+  return function (input) {
+    return input.replace('+', ' ');
+  }
+});
+
+app.filter('encode', function () {
+  return function (input) {
+    return input.replace(',', ' ');
+  }
+});

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 
 //define routes here;
-var foodRoutes = rquire('./routes/foodRoutes');
+var foodRoutes = require('./routes/foodRoutes');
 
 app.use(bodyParser.json());
 

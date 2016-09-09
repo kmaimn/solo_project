@@ -1,0 +1,7 @@
+<h3>RESULTS PAGE</h3>
+
+  <div class="results" ng-repeat="result in ingredients.hits">
+  <img class="pic" ng-src="{{result.recipe.image}}" />
+  <h5>{{result.recipe.label}}</h5>
+  <button type="button" name="moreInfo">More Info</button>
+  </div>

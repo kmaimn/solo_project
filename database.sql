@@ -6,12 +6,9 @@ item varchar(255)
 );
 
 --create table for recipe favorites;
-CREATE TABLE favorites (
+CREATE TABLE query (
 id serial PRIMARY KEY,
-img_url varchar(255),
-recipe varchar(255),
-recipe_url varchar(255),
-recipe_id int
+ingredient varchar(255)
 );
 
 --only use 5 category types for inventory category (produce, proteins, dairy, grains, other)
