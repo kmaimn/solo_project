@@ -1,4 +1,4 @@
-var app = angular.module('app', ['checklist-model', 'ngRoute']);
+var app = angular.module('app', ['checklist-model', 'ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
 
@@ -11,10 +11,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     .when('/results', {
       templateUrl: '/public/views/partials/results.html',
       controller: 'ResultsController'
-    })
-    .when('/pantry', {
-      templateUrl: '/public/views/partials/pantry.html',
-      controller: 'PantryController'
     })
     .when('/favorites', {
       templateUrl: '/public/views/partials/favorites.html',

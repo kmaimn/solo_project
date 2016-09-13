@@ -38,11 +38,30 @@
   </div>
 
   <div class="ingredientsContainer col-md-3">
-    <h3>Ingredients List:</h3>
-    <div ng-repeat="stuff in selectedIngredients">
-      <li>{{stuff | unconcat}}</li>
+
+    <div class="toBuy">
+      <h3 class="listText">Ingredients List:</h3>
+      <div ng-repeat="stuff in selectedIngredients">
+        <li class="toBuyItems">{{stuff | unconcat}}</li>
+      </div>
+      <div class="submitContainer">
+        <a class="btn btn-default submitButton" ng-click="getIngredients()">Submit</a>
+      </div>
     </div>
-    <a class="btn btn-default submitButton" ng-click="getIngredients()">Submit</a>
+
+    <div class="newItems">
+      <h3>New Items:</h3>
+      <form id="addNew">
+        <label for="category">Category:</label>
+        <select class="drop-down" ng-model="category">
+        <option class="drop-down" ng-repeat="type in categories">{{type}}</option>
+        </select>
+
+        <label for="item">New Item:</label>
+        <input type="text" ng-model="item" />
+      </form>
+      <a class="btn btn-default btn-block addButton" ng-click="addIngredients()">Add</a>
+    </div>
 
   </div>
 

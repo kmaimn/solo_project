@@ -16,15 +16,17 @@ var getInventoryFF = function () {
 
 var findRecipe = function () {
 
-  var key = '';
-  var id = '';
+  var key = '&app_key=';
+  var id = '&app_id=';
   var baseUrl = 'https://api.edamam.com/search?q=';
+  var showMany = '&to=20';
 
-  var request = baseUrl + encodeURI(kim.query) + id + key + '&callback=JSON_CALLBACK';
+  var request = baseUrl + encodeURI(kim.query) + showMany + id + key + '&callback=JSON_CALLBACK';
 
   // api call;
   var promise = $http.jsonp(request).then(
     function (response) {
+      console.log(request);
       console.log('query response', response);
       queryResults = response.data;
 

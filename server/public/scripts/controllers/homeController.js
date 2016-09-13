@@ -5,6 +5,8 @@ app.controller('HomeController', ['$scope', '$http', 'FoodFactory', '$location',
   $scope.selectedIngredients = [];
   $scope.results = [];
 
+  $scope.categories = ['', 'Dairy', 'Grains', 'Produce', 'Proteins', 'Other'];
+
   if ($scope.foodFactory.inventory() === undefined) {
     console.log('Get inventory from the DB');
     $scope.foodFactory.getInventory().then(function (response) {
@@ -21,6 +23,26 @@ app.controller('HomeController', ['$scope', '$http', 'FoodFactory', '$location',
       $location.path('/results');
     });
   };
+
+  $scope.addIngredients = function () {
+
+    var newItem = {
+      category: $scope.category,
+      item: $scope.item
+    };
+    //
+    // $scope.category = '';
+    // $scope.item = '';
+
+    $http({
+      method: 'POST',
+      url: 'foodRoutes',
+      data: newItem
+    }).then(function (response){
+      $scope.pantry = $scope.foodFactory.inventory()
+      console.log('new food item sent to DB');
+    })
+  }
 
 
 }]);

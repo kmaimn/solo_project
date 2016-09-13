@@ -13,20 +13,60 @@ h1{
 
 }
 
-.ingredientsContainer{
-  border: 1px solid black;
-  height: 300px;
-  margin: 5px 5px 0 0;
-
+.listText{
+  text-align: center;
 }
 
-.submitButton{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+.toBuy{
+  border: 1px solid black;
+  height: 200px;
+  margin: 5px 0 10px 0;
+}
 
+.toBuyItems{
+  list-style: none;
+  padding-left: 20px;
+  font-size: medium;
+}
+
+.submitContainer{
+  position: absolute;
+  right: 30px;
+  bottom: 125px;
+}
+
+.addButton{
+  margin-top: 10px;
 }
 
 .results{
   display: inline-block;
+  overflow: hidden;
+  width: 300px;
+  height: 350px;
+  border: 1px solid black;
+  margin: 3px 3px 3px 3px;
+}
+
+.pic{
+  width: 300px;
+  height: 200px;
+}
+
+.recipeName{
+  text-align: center;
+}
+
+.recipeLink{
+  text-align: center;
+  display: block;
+}
+
+.buttonDiv{
+  top: 330px;
+  text-align: center;
+}
+
+.submitButton{
+  margin-bottom: 10px;
 }

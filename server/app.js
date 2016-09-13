@@ -5,6 +5,7 @@ var path = require('path');
 
 //define routes here;
 var foodRoutes = require('./routes/foodRoutes');
+var messageRoute = require('./routes/messageRoute');
 
 app.use(bodyParser.json());
 
@@ -12,6 +13,7 @@ app.use('/public', express.static(path.join(__dirname, './public')));
 
 //set app.use for route here;
 app.use('/foodRoutes', foodRoutes);
+app.use('/messageRoute', messageRoute)
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, './public/views/index.html'));
