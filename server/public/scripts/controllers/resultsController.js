@@ -3,32 +3,48 @@ app.controller('ResultsController', ['$scope', '$http', 'FoodFactory', '$uibModa
 
     $scope.foodFactory = FoodFactory;
     $scope.ingredients = $scope.foodFactory.results();
+    $scope.value = true;
 
-    // console.log($scope.ingredients.hits.length);
-
+    //error message if query returns no results;
     if($scope.ingredients.hits.length === 0) {
-      $scope.message = 'Your choices were too weird... Try again.';
+      $scope.value = false;
     };
 
-    //modal;
+    //add favorite to favs page and DB;
+    $scope.addFavorite = function(image, label, url, source, ingredients){
+      var favorite = {
+        image: image,
+        label: label,
+        url: url,
+        source: source,
+        ingredients: ingredients
+      };
+
+      $http({
+        method: 'POST',
+        url: 'foodRoutes/favorite',
+        data: favorite
+      }).then(function (response){
+        console.log('New favorite to send to DB', favorite);
+      })
+    }
+
+    //animation for the modal transition;
     $scope.animationsEnabled = true;
 
+    //modal stuff;
     $scope.open = function (_result) {
       var modalInstance = $uibModal.open({
         animation: $scope.animationsEnabled,
         templateUrl: '/public/views/partials/recipe.html',
-        controller: 'PopUpController',
+        controller: 'RecipeController',
         resolve: {
           result: function () {
-            console.log(_result);
+            console.log('Favorite sent to DB from Results:', _result);
             return _result;
           }
         }
       });
-    };
-
-    $scope.toggleAnimation = function () {
-      $scope.animationsEnabled = !$scope.animationsEnabled;
     };
 
 }]);

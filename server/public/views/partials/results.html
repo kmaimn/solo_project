@@ -1,10 +1,21 @@
 <h3>RESULTS PAGE</h3>
+<div class="center">
 
-  <div class="results" ng-repeat="result in ingredients.hits">
-  <img class="img-responsive pic" ng-src="{{result.recipe.image}}" />
-  <h5 class="recipeName">{{result.recipe.label}}</h5>
-  <a class="recipeLink" href="{{result.recipe.url}}" target="_blank">{{result.recipe.source}}</a><br>
-  <div class="buttonDiv">
-    <button class="btn btn-default btn-sm resultButton" type="button" ng-click="open(result)">More Info</button>
+  <div class="resultsFound" ng-show="value">
+    <div class="results" ng-repeat="result in ingredients.hits">
+      <img class="img-responsive pic" ng-src="{{result.recipe.image}}" />
+      <h5 class="recipeName">{{result.recipe.label}}</h5>
+      <a class="recipeLink" href="{{result.recipe.url}}" target="_blank">{{result.recipe.source}}</a><br>
+      <div class="buttonDiv">
+        <button class="btn btn-default btn-sm resultButton" type="button" ng-click="open(result)">More Info</button>
+      </div>
+      <button type="button" name="button" class="favorite">
+        <span class="glyphicon glyphicon-star" aria-hidden="true" ng-click="addFavorite(result.recipe.image, result.recipe.label, result.recipe.url, result.recipe.source, result.recipe.ingredientLines)"></span>
+      </button>
+    </div>
   </div>
+  <div class="noResultsFound" ng-show="!value">
+    <h1 class="noResultsMsg">No Results.</h1>
   </div>
+
+</div>

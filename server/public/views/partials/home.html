@@ -1,66 +1,95 @@
 <h3>home view</h3>
+
+<div id="myProgress">
+  <div id="myBar"></div>
+</div>
+
 <div class="row">
-  <div class="inventoryContainer col-md-8">
+  <div class="inventoryContainer col-md-7">
     <div class="inventory">
-      <h3 class="heading">Dairy</h3>
+      <h3 class="heading"><span class="glyphicon glyphicon-tint icon" aria-hidden="true"></span> Dairy</h3>
       <label class="pantry-1" ng-repeat="ingredient in pantry | filter: {category: 'dairy'}">
-        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
+
     </div>
 
     <div class="inventory">
-      <h3 class="heading">Grains</h3>
+      <h3 class="heading"><span class="glyphicon glyphicon-grain icon" aria-hidden="true"></span> Grains</h3>
       <label class="pantry-2" ng-repeat="ingredient in pantry | filter: {category: 'grains'}">
-        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading">Produce</h3>
+      <h3 class="heading"><span class="glyphicon glyphicon-apple icon" aria-hidden="true"></span> Produce</h3>
       <label class="pantry-3" ng-repeat="ingredient in pantry | filter: {category: 'produce'}">
-        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading">Proteins</h3>
+      <h3 class="heading"><span class="glyphicon glyphicon-piggy-bank icon" aria-hidden="true"></span> Proteins</h3>
       <label class="pantry-4" ng-repeat="ingredient in pantry | filter: {category: 'protein'}">
-        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading">Other</h3>
+      <h3 class="heading"><span class="glyphicon glyphicon-glass icon" aria-hidden="true"></span> Other</h3>
       <label class="pantry-5" ng-repeat="ingredient in pantry | filter: {category: 'other'}">
-        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat">{{ingredient.item}}
+        <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
   </div>
 
-  <div class="ingredientsContainer col-md-3">
+  <div class="ingredientsContainer col-md-4">
 
     <div class="toBuy">
       <h3 class="listText">Ingredients List:</h3>
-      <div ng-repeat="stuff in selectedIngredients">
-        <li class="toBuyItems">{{stuff | unconcat}}</li>
+      <p class="listText pTag">Don't get ahead of yourself...max is 5.</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div ng-repeat="stuff in selectedIngredients">
+            <li class="toBuyItems">{{stuff | unconcat}}</li>
+          </div>
+        </div>
+        <div class="col-md-6 btn-group" role="group">
+            <button type="button" class="btn btn-default popButton pull-right" ng-click="removeLast()">Undo</button>
+            <button type="button" class="btn btn-default submitButton pull-right" ng-click="getIngredients()">Submit</button>
+        </div>
       </div>
-      <div class="submitContainer">
-        <a class="btn btn-default submitButton" ng-click="getIngredients()">Submit</a>
-      </div>
+
     </div>
 
     <div class="newItems">
-      <h3>New Items:</h3>
-      <form id="addNew">
-        <label for="category">Category:</label>
-        <select class="drop-down" ng-model="category">
-        <option class="drop-down" ng-repeat="type in categories">{{type}}</option>
-        </select>
-
-        <label for="item">New Item:</label>
-        <input type="text" ng-model="item" />
+      <h3>New Fooooods:</h3>
+      <form id="addNew" style="padding: 15px;">
+        <autocomplete  options="datas"
+                place-holder="What did you buy...?"
+                on-select="onSelect"
+                display-property="item"
+                input-class="form-control"
+                clear-input="false"></autocomplete>
+                <a class="btn btn-default btn-block addButton" ng-click="addIngredients()">Add</a>
       </form>
-      <a class="btn btn-default btn-block addButton" ng-click="addIngredients()">Add</a>
+    </div>
+
+    <div class="removeItem">
+      <h3>Used Fooooods:</h3>
+      <form id="remove" style="padding: 15px;">
+        <autocomplete  options="datas"
+                place-holder="What did you eat...?"
+                on-select="onSelect"
+                display-property="item"
+                input-class="form-control"
+                clear-input="false"></autocomplete>
+                <a class="btn btn-default btn-block addButton" ng-click="removeIngredients()">He Gone.</a>
+      </form>
+
+      <!-- <form id="remove">
+        <input type="text" ng-model="removedItem" class="input-sm"/ ><a class="btn btn-default deleteButton" ng-click="removeIngredients(removedItem)">Remove</a>
+      </form> -->
     </div>
 
   </div>

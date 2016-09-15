@@ -9,8 +9,8 @@ router.post('/', function (req, res) {
   var ingredients = req.body.join('\n');
 
   client.sendMessage({
-    to: '+17632187211',
-    from: '+16122604034',
+    to: '+',
+    from: '+',
     body: 'Can you pick up...' + '\n' + ingredients
   }, function (err, data) {
     if (err) {

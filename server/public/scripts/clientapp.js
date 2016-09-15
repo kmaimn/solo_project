@@ -1,4 +1,4 @@
-var app = angular.module('app', ['checklist-model', 'ngRoute', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('app', ['checklist-model', 'ngRoute', 'ngAnimate', 'ui.bootstrap', 'simple-autocomplete']);
 
 app.config(['$routeProvider', function ($routeProvider) {
 

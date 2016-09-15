@@ -1,62 +1,85 @@
-app.factory('FoodFactory', ['$http', function ($http) {
+app.factory('FoodFactory', ['$http', function($http) {
 
-var inventoryFF = undefined;
-var kim = {};
-var queryResults = [];
+    var inventoryFF = undefined;
+    var kim = {};
+    var queryResults = [];
+    var favoriteRecipes = undefined;
+    var favoriteID = '';
+    var detail = {};
 
-//GET inventory;
-var getInventoryFF = function () {
-  console.log('FoodFactory is getting my inventory');
-  var promise = $http.get('/foodRoutes').then(function (response) {
-    console.log('FoodFactory has a response of', response);
-    inventoryFF = response.data;
-  });
-  return promise;
-}
+    //GET inventory to homepage;
+    var getInventoryFF = function() {
+        console.log('FoodFactory is getting my inventory');
+        var promise = $http.get('/foodRoutes/').then(function(response) {
+            console.log('FoodFactory has a response of', response);
+            inventoryFF = response.data;
+        });
+        return promise;
+    }
+    //GET recipies from API to results page;
+    var findRecipe = function() {
 
-var findRecipe = function () {
+        var key = '&app_key=';
+        var id = '&app_id=';
+        var baseUrl = 'https://api.edamam.com/search?q=';
+        var showMany = '&to=16';
 
-  var key = '&app_key=';
-  var id = '&app_id=';
-  var baseUrl = 'https://api.edamam.com/search?q=';
-  var showMany = '&to=20';
+        var request = baseUrl + encodeURI(kim.query) + showMany + id + key + '&callback=JSON_CALLBACK';
 
-  var request = baseUrl + encodeURI(kim.query) + showMany + id + key + '&callback=JSON_CALLBACK';
+        var promise = $http.jsonp(request).then(
+            function(response) {
+                console.log(request);
+                console.log('query response', response);
+                queryResults = response.data;
 
-  // api call;
-  var promise = $http.jsonp(request).then(
-    function (response) {
-      console.log(request);
-      console.log('query response', response);
-      queryResults = response.data;
+            });
+        return promise;
+    }
 
-    });
-    return promise;
-}
+    //fake progres bar;
+    var animation = function () {
+        var elem = document.getElementById("myBar");
+        var width = 1;
+        var id = setInterval(frame, 20);
 
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + '%';
+            }
+        }
+    }
 
-//returns to the controllers
-return{
-  inventory: function () {
-    return inventoryFF;
-  },
+    //returns to the controllers
+    return {
 
-  getInventory: function () {
-    return getInventoryFF();
-  },
+        inventory: function() {
+            return inventoryFF;
+        },
 
-  getQuery: function () {
-    return findRecipe();
-  },
+        getInventory: function() {
+            return getInventoryFF();
+        },
 
-  setQuery: function (query) {
-    kim.query = query;
-  },
+        getQuery: function() {
+            return findRecipe();
+        },
 
-  results: function () {
-    return queryResults;
-  }
+        setQuery: function(query) {
+            kim.query = query;
+        },
 
-}
+        results: function() {
+            return queryResults;
+        },
+
+        //pretend status bar;
+        move: function() {
+            return animation();
+        }
+
+    }
 
 }]);
