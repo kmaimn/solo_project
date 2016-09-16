@@ -3,9 +3,6 @@ app.factory('FoodFactory', ['$http', function($http) {
     var inventoryFF = undefined;
     var kim = {};
     var queryResults = [];
-    var favoriteRecipes = undefined;
-    var favoriteID = '';
-    var detail = {};
 
     //GET inventory to homepage;
     var getInventoryFF = function() {

@@ -1,10 +1,9 @@
-<h3>home view</h3>
 
-<div id="myProgress">
-  <div id="myBar"></div>
-</div>
+<div class="row mainContent">
+  <div id="myProgress">
+    <div id="myBar"></div>
+  </div>
 
-<div class="row">
   <div class="inventoryContainer col-md-7">
     <div class="inventory">
       <h3 class="heading"><span class="glyphicon glyphicon-tint icon" aria-hidden="true"></span> Dairy</h3>
@@ -42,34 +41,30 @@
       </label>
     </div>
   </div>
-
+  <div class="col-md-1"></div>
   <div class="ingredientsContainer col-md-4">
 
     <div class="toBuy">
       <h3 class="listText">Ingredients List:</h3>
       <p class="listText pTag">Don't get ahead of yourself...max is 5.</p>
-      <div class="row">
-        <div class="col-md-6">
-          <div ng-repeat="stuff in selectedIngredients">
-            <li class="toBuyItems">{{stuff | unconcat}}</li>
-          </div>
+      <div class="accentLine"></div>
+        <div ng-repeat="stuff in selectedIngredients">
+          <li class="toBuyItems"><strong>{{stuff | unconcat}}</strong></li>
         </div>
-        <div class="col-md-6 btn-group" role="group">
-            <button type="button" class="btn btn-default popButton pull-right" ng-click="removeLast()">Undo</button>
-            <button type="button" class="btn btn-default submitButton pull-right" ng-click="getIngredients()">Submit</button>
-        </div>
-      </div>
-
+    </div>
+    <div class="btn-group pull-right" role="group">
+        <button type="button" class="popButton pull-right" ng-click="removeLast()">Undo</button>
+        <button type="button" class="submitButton pull-right" ng-click="getIngredients()">Submit</button>
     </div>
 
     <div class="newItems">
       <h3>New Fooooods:</h3>
       <form id="addNew" style="padding: 15px;">
-        <autocomplete  options="datas"
+        <autocomplete options="datas"
                 place-holder="What did you buy...?"
                 on-select="onSelect"
                 display-property="item"
-                input-class="form-control"
+                input-class="form-control input"
                 clear-input="false"></autocomplete>
                 <a class="btn btn-default btn-block addButton" ng-click="addIngredients()">Add</a>
       </form>
@@ -78,18 +73,15 @@
     <div class="removeItem">
       <h3>Used Fooooods:</h3>
       <form id="remove" style="padding: 15px;">
-        <autocomplete  options="datas"
+        <autocomplete options="datas"
                 place-holder="What did you eat...?"
                 on-select="onSelect"
                 display-property="item"
-                input-class="form-control"
+                input-class="form-control input"
                 clear-input="false"></autocomplete>
-                <a class="btn btn-default btn-block addButton" ng-click="removeIngredients()">He Gone.</a>
+                <a class="btn btn-default btn-block addButton" ng-click="removeIngredients()">He Gone</a>
       </form>
 
-      <!-- <form id="remove">
-        <input type="text" ng-model="removedItem" class="input-sm"/ ><a class="btn btn-default deleteButton" ng-click="removeIngredients(removedItem)">Remove</a>
-      </form> -->
     </div>
 
   </div>

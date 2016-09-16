@@ -4,76 +4,231 @@ html {
 }
 
 body {
-  height: 1054px;
-  background-color: lightcyan;
+  background-color:  #C5D0C1;
+  color: #494546;
+  font-family: 'Poiret One', serif;
 }
 
-/*body{
-  background-color: lightcyan;
-}*/
-.title{
-  text-align: center;
+h3{
+  font-size: 30px;
 }
+
+h5{
+  font-size: 20px;
+}
+
+.pageHeader{
+  margin-left: 20px;
+}
+
+/*home.html styling*/
+
+.mainContent{
+  margin: 50px 50px 0 50px;
+}
+
+.inventoryContainer{
+  width: 860px;
+}
+
+.ingredientsContainer{
+  margin-top: -17px;
+}
+
 .heading{
   margin-top: 5px;
 }
 .pantry-1, .pantry-2, .pantry-3, .pantry-4, .pantry-5{
     display: inline-block;
     width:25%;
+    font-size: 18px;
 }
 
 .inventory{
   margin: 5px 5px 5px 5px;
   padding-left: 5px;
-  border: 1px solid black;
+  border: 1px solid #494546;
   border-radius: 3px;
-  background-color: rgb(248,248,248);
-}
-
-.titleBar{
   background-color: rgb(248,248,248);
 }
 
 .listText{
   text-align: center;
+  margin-top: 5px;
 }
 
 .pTag{
   margin-top: -10px;
 }
+
 .toBuy{
-  border: 1px solid black;
+  border: 1px solid #494546;
   border-radius: 3px;
   height: 200px;
   margin: 5px 0 10px 0;
+  background-color: rgb(248,248,248);
 }
 
 .toBuyItems{
   list-style: none;
-  padding-left: 20px;
   font-size: medium;
+  text-align: center;
 }
 
-.deleteButton{
-  margin-left: 10px;
+.accentLine{
+  height: 1px;
+  background-color: #E8866C;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: -1px;
 }
 
 .addButton{
   margin-top: 10px;
 }
 
+.submitButton{
+  margin-right: 8px;
+}
+
+.submitButton:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.submitButton:active, .submitButton:focus{
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.popButton, .submitButton, .resultButton{
+  margin-right: 5px;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.popButton:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.popButton:active, .popButton:focus {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.popButton.active, .popButton.focus {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+
+#myProgress {
+    position: relative;
+    width: 820px;
+    height: 10px;
+    background-color: rgb(248,248,248);
+    margin-left: 20px;
+    border: 1px solid #494546;
+    border-radius: 2px;
+}
+#myBar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: #E8866C;
+}
+
+.icon{
+  color: #E8866C;
+  font-size: 30px;
+}
+
+/*nav.html footer.html styling*/
+
+.bottomNav{
+  margin-top: 25px;
+  bottom: 0;
+
+  width: 100%;
+}
+
+.titleBar{
+  background-color: #828E8C;
+    color: #F8ECDE;
+}
+
+.title{
+  text-align: center;
+}
+
+.searchBar{
+  width: 500px;
+  height: 33px;
+  border-radius: 3px;
+}
+
+.searchBar:active:focus {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.input:focus {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.nav{
+  font-size: 20px;
+}
+
+/*reslts.html and favorites.html styling*/
+
 .results{
   display: inline-block;
   overflow: hidden;
   width: 300px;
   height: 400px;
-  border: 1px solid black;
   margin: 3px 3px 3px 3px;
 }
 
 .pic{
   width: 300px;
   height: 200px;
+  border: 1px solid #494546;
+  border-radius: 2px;
+  opacity: .7;
+}
+
+.pic:hover{
+  opacity: .85;
 }
 
 .recipeName{
@@ -83,22 +238,18 @@ body {
 .recipeLink{
   text-align: center;
   display: block;
+  color: #E8866C;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.recipeLink:hover{
+  color: #E8866C;
 }
 
 .buttonDiv{
   top: 330px;
   text-align: center;
-}
-
-.submitButton, .popButton{
-  margin-top: 80px;
-}
-.submitButton{
-  margin-right: 8px;
-}
-
-.popButton{
-  margin-right: 5px;
 }
 
 .favorite{
@@ -107,33 +258,50 @@ body {
   outline: none;
   border: 0;
   background: transparent;
-  color: slategray;
+  color: #494546;
+  display: inline-block;
 }
 
 .favorite:focus{
-  color: darkorange;
-}
-
-#myProgress {
-    position: relative;
-    width: 807px;
-    height: 10px;
-    background-color: rgb(248,248,248);
-    margin-left: 5px;
-    border: 1px solid black;
-}
-#myBar {
-    position: absolute;
-    width: 1%;
-    height: 100%;
-    background-color: darkorange;
-}
-
-.icon{
-  color: darkorange;
+  color: #E8866C;
 }
 
 .center{
   margin: auto;
   width: 90%;
+}
+
+.resultButton{
+  font-size: 15px;
+}
+
+.resultButton:hover{
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
+.resultButton:active, .resultButton:focus {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.noResultsFound{
+  text-align: center;
+  margin-top: 75px;
+}
+
+.noResultsMsg{
+  height: 170px;
+}
+
+/*favorites.html favoriteRecipe.html styling;*/
+
+.favoriteHeading, .favoriteListing{
+  padding-left: 15px;
+}
+
+.favoriteListing{
+  margin-top: 10px;
 }

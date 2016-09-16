@@ -21,18 +21,21 @@ app.config(['$routeProvider', function ($routeProvider) {
     });
 }]);
 
+//filter to fix two-letter ingredients for query;
 app.filter('concat', function () {
   return function (input) {
     return input.replace(/ /g, '+');
   }
 });
 
+//unconcat for display purposes;
 app.filter('unconcat', function () {
   return function (input) {
     return input.replace('+', ' ');
   }
 });
 
+//not sure what this is for..
 app.filter('encode', function () {
   return function (input) {
     return input.replace(',', ' ');

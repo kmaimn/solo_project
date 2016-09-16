@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/styles/style.css" />
     <link rel="stylesheet" href="/public/styles/simple-autocomplete.css">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 
     <script type="text/javascript" src="/public/vendors/angular.min.js"></script>
     <script type="text/javascript" src="/public/vendors/angular-animate.min.js"></script>
@@ -16,15 +17,19 @@
     <script type="text/javascript" src="/public/scripts/clientapp.js"></script>
     <script type="text/javascript" src="/public/scripts/factories/dataFactory.js"></script>
     <script type="text/javascript" src="/public/scripts/factories/favoriteFactory.js"></script>
+    <script type="text/javascript" src="/public/scripts/factories/arrayFactory.js"></script>
+
     <script type="text/javascript" src="/public/scripts/controllers/homeController.js"></script>
     <script type="text/javascript" src="/public/scripts/controllers/resultsController.js"></script>
     <script type="text/javascript" src="/public/scripts/controllers/favoritesController.js"></script>
     <script type="text/javascript" src="/public/scripts/controllers/popupController.js"></script>
     <script type="text/javascript" src="/public/scripts/controllers/navController.js"></script>
+
   </head>
 
   <body ng-app="app">
     <div ng-include="'/public/views/partials/nav.html'"></div>
     <div ng-view></div>
+    <div ng-include="'/public/views/partials/footer.html'"></div>
   </body>
 </html>

@@ -4,6 +4,7 @@ var twilio = require('twilio')
 
 var client = new twilio.RestClient('', '');
 
+//POST to server, sends text;
 router.post('/', function (req, res) {
 
   var ingredients = req.body.join('\n');

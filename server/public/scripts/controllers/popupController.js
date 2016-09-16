@@ -4,17 +4,20 @@ app.controller('RecipeController', ['$scope', '$http', '$uibModalInstance', 'res
   $scope.toBuy = [];
   $scope.result = result;
 
+  //OK button;
   $scope.ok = function () {
     $uibModalInstance.close($scope.toBuy);
     $scope.sendText();
     console.log('Things to buy:', $scope.toBuy);
   };
 
+  //cancel button;
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
     console.log('Nevermind.');
   };
 
+  //texting function;
   $scope.sendText = function () {
 
     var list = $scope.toBuy;
@@ -46,17 +49,20 @@ app.controller('FavoriteRecipeController', ['$scope', '$http', '$uibModalInstanc
   $scope.detailInfo = $scope.favoriteFactory.getDetail();
   console.log('id number of favorite selected:', $scope.detailInfo);
 
+  //OK button, sends text;
   $scope.ok = function () {
     $uibModalInstance.close($scope.toBuy);
     $scope.sendText();
     console.log('Things to buy:', $scope.toBuy);
   };
 
+  //cancel button;
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
     console.log('Nevermind.');
   };
 
+  //texting function;
   $scope.sendText = function () {
 
     var list = $scope.toBuy;

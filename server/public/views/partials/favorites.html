@@ -1,14 +1,14 @@
-<h3>FAVORITES PAGE</h3>
+<h3 class="pageHeader">FAVORITES PAGE</h3>
 
 <div class="center">
 
   <div class="favoritesListing" ng-show="value">
     <div class="results" ng-repeat="favorite in favorites">
-      <img class="img-responsive pic" ng-src="{{favorite.image}}" />
+      <img class="img-responsive pic" ng-click="open(favorite)" ng-src="{{favorite.image}}" />
       <h5 class="recipeName">{{favorite.label}}</h5>
       <a class="recipeLink" href="{{favorite.url}}" target="_blank">{{favorite.source}}</a><br>
       <div class="buttonDiv">
-        <button class="btn btn-default btn-sm resultButton" type="button" ng-click="open(favorite)">More Info</button>
+        <button class="btn-sm resultButton" type="button" ng-click="open(favorite)">More Info</button>
       </div>
     </div>
   </div>
