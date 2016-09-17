@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var twilio = require('twilio')
 
-var client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+var client = new twilio.RestClient(process.env.ACCOUNT_SID, process.env.AUTH_TOKEN);
 
 //POST to server, sends text;
 router.post('/', function (req, res) {
@@ -10,8 +10,8 @@ router.post('/', function (req, res) {
   var ingredients = req.body.join('\n');
 
   client.sendMessage({
-    to: '+17632187211',
-    from: '+16122604034',
+    to: process.env.PHONE,
+    from: process.env.TWILIO,
     body: 'Can you pick up...' + '\n' + ingredients
   }, function (err, data) {
     if (err) {

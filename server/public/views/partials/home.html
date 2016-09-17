@@ -6,7 +6,7 @@
 
   <div class="inventoryContainer col-md-7">
     <div class="inventory">
-      <h3 class="heading"><span class="glyphicon glyphicon-tint icon" aria-hidden="true"></span> Dairy</h3>
+      <h3 class="heading"><img class="img-responsive logo" ng-src="/public/images/milk_color.png" /> Dairy</h3>
       <label class="pantry-1" ng-repeat="ingredient in pantry | filter: {category: 'dairy'}">
         <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
@@ -14,28 +14,28 @@
     </div>
 
     <div class="inventory">
-      <h3 class="heading"><span class="glyphicon glyphicon-grain icon" aria-hidden="true"></span> Grains</h3>
+      <h3 class="heading"><img class="img-responsive logo" ng-src="/public/images/bread_color.png" /> Grains</h3>
       <label class="pantry-2" ng-repeat="ingredient in pantry | filter: {category: 'grains'}">
         <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading"><span class="glyphicon glyphicon-apple icon" aria-hidden="true"></span> Produce</h3>
+      <h3 class="heading"><img class="img-responsive logo" ng-src="/public/images/carrot_color.png" /> Produce</h3>
       <label class="pantry-3" ng-repeat="ingredient in pantry | filter: {category: 'produce'}">
         <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading"><span class="glyphicon glyphicon-piggy-bank icon" aria-hidden="true"></span> Proteins</h3>
+      <h3 class="heading"><img class="img-responsive logo" ng-src="/public/images/egg_color.png" /> Proteins</h3>
       <label class="pantry-4" ng-repeat="ingredient in pantry | filter: {category: 'protein'}">
         <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>
     </div>
 
     <div class="inventory">
-      <h3 class="heading"><span class="glyphicon glyphicon-glass icon" aria-hidden="true"></span> Other</h3>
+      <h3 class="heading"><img class="img-responsive logo" ng-src="/public/images/jam_color.png" /> Other</h3>
       <label class="pantry-5" ng-repeat="ingredient in pantry | filter: {category: 'other'}">
         <input type="checkbox" checklist-model="selectedIngredients" checklist-value="ingredient.item | concat" ng-disabled="selectedIngredients.length > 4">  {{ingredient.item}}
       </label>

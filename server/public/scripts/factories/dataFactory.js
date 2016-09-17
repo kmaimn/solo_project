@@ -16,8 +16,8 @@ app.factory('FoodFactory', ['$http', function($http) {
     //GET recipies from API to results page;
     var findRecipe = function() {
 
-        var key = '&app_key=7e25e5b3daa1a52fcdfb6074da5303fe';
-        var id = '&app_id=f2babc1d';
+        var key = '&app_key=' + process.env.API_KEY;
+        var id = '&app_id=' + process.env.API_ID;
         var baseUrl = 'https://api.edamam.com/search?q=';
         var showMany = '&to=16';
 

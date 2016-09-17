@@ -23,6 +23,16 @@ h5{
 
 /*home.html styling*/
 
+.logo{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.logo-nav{
+  margin-top: -15px;
+}
+
 .mainContent{
   margin: 50px 50px 0 50px;
 }

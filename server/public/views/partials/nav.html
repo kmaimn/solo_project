@@ -6,7 +6,7 @@
   <nav class="navbar navbar-default" ng-controller="NavController">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-option-horizontal icon" aria-hidden="true"></span></a>
+        <a class="navbar-brand" href="#"><img class="img-responsive logo logo-nav" ng-src="/public/images/basket_color.png" /></a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
@@ -16,7 +16,7 @@
         </ul>
         <form class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="text" class="searchBar" placeholder=" Search the foods..." ng-model="genericInput">
+            <input type="text" class="searchBar" placeholder=" Search all the foods..." ng-model="genericInput">
           </div>
           <button type="submit" class="submitButton" ng-click="genericSearch()">Search</button>
         </form>
