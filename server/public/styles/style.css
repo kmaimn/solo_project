@@ -29,10 +29,6 @@ h5{
   display: inline-block;
 }
 
-.logo-nav{
-  margin-top: -15px;
-}
-
 .mainContent{
   margin: 50px 50px 0 50px;
 }
@@ -181,6 +177,10 @@ h5{
 
 /*nav.html footer.html styling*/
 
+.logo-nav{
+  margin-top: -15px;
+}
+
 .bottomNav{
   margin-top: 25px;
   bottom: 0;
@@ -226,6 +226,14 @@ h5{
 }
 
 /*reslts.html and favorites.html styling*/
+
+.logo-favorite{
+  opacity: .7;
+}
+
+.log-favorite:hover{
+  opacity: 1;
+}
 
 .results{
   display: inline-block;
