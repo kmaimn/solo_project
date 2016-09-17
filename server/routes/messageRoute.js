@@ -10,8 +10,8 @@ router.post('/', function (req, res) {
   var ingredients = req.body.join('\n');
 
   client.sendMessage({
-    to: process.env.PHONE,
-    from: process.env.TWILIO,
+    to: '+17632187211',
+    from: '+16122604034',
     body: 'Can you pick up...' + '\n' + ingredients
   }, function (err, data) {
     if (err) {
