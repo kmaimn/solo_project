@@ -203,7 +203,13 @@ h5{
   border-radius: 3px;
 }
 
-.searchBar:active, .searchBar:focus {
+.searchBar:active {
+  border-color: #E8866C;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
+  outline: 0 none;
+}
+
+.searchBar:focus {
   border-color: #E8866C;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px #E8866C;
   outline: 0 none;
