@@ -19,7 +19,7 @@ app.factory('FoodFactory', ['$http', function($http) {
         var key = '&app_key=7e25e5b3daa1a52fcdfb6074da5303fe';
         var id = '&app_id=f2babc1d';
         var baseUrl = 'https://api.edamam.com/search?q=';
-        var showMany = '&to=16';
+        var showMany = '&to=60';
 
         var request = baseUrl + encodeURI(kim.query) + showMany + id + key + '&callback=JSON_CALLBACK';
 

@@ -129,4 +129,28 @@ router.delete('/favorite/:name', function (req, res) {
   });
 });
 
+//DELETE favorite;
+router.delete('/:name', function (req, res) {
+  var id = req.params;
+  console.log(id);
+
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      res.sendStatus(500);
+    }
+
+    client.query('DELETE FROM ingredients ' + 'WHERE item = $1', [id.name], function (err, result) {
+      done();
+
+      if (err) {
+        res.sendStatus(500);
+        console.log(err);
+        return;
+      }
+
+      res.sendStatus(200);
+    });
+  });
+});
+
 module.exports = router;
