@@ -10,10 +10,17 @@
       <div class="buttonDiv">
         <button class="btn-sm resultButton" type="button" ng-click="open(favorite)">More Info</button>
       </div>
+
+      <div class="remove">
+        <button type="button" name="button" class="favorite">
+          <img class="img-responsive logo-delete" ng-src="/public/images/x_color.png" ng-click="removeFavorite(favorite.image, favorite.label, favorite.url, favorite.source, favorite.ingredientLines)" />
+        </button>
+      </div>
+
     </div>
   </div>
   <div class="noResultsFound" ng-show="!value">
-    <h1 class="noResultsMsg">No Results.</h1>
+    <h1 class="noResultsMsg">You have no favorites!</h1>
   </div>
 
 </div>

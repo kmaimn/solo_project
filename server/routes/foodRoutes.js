@@ -105,8 +105,8 @@ router.get('/favorite', function (req, res) {
   });
 });
 
-//DELETE used ingredients;
-router.delete('/:name', function (req, res) {
+//DELETE favorite;
+router.delete('/favorite/:name', function (req, res) {
   var id = req.params;
   console.log(id);
 
@@ -115,7 +115,7 @@ router.delete('/:name', function (req, res) {
       res.sendStatus(500);
     }
 
-    client.query('DELETE FROM inventory ' + 'WHERE item = $1', [id.name], function (err, result) {
+    client.query('DELETE FROM favorite ' + 'WHERE label = $1', [id.name], function (err, result) {
       done();
 
       if (err) {

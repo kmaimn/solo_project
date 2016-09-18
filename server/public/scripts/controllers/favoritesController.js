@@ -18,8 +18,36 @@ app.controller('FavoritesController', ['$scope', '$http', 'FavoriteFactory', '$u
       console.log('Favorites from the DB:', $scope.favorites);
     });
   } else {
-    $scope.favorites = $scope.favoriteFactory.favorites();
+    $scope.favoriteFactory.getFavorites().then(function (response) {
+      $scope.favorites = $scope.favoriteFactory.favorites();
+    });
   }
+
+  //remove favorite from the DB;
+  $scope.removeFavorite = function(image, label, url, source, ingredients) {
+
+    var deletedItem = {
+      image: image,
+      label: label,
+      url: url,
+      source: source,
+      ingredients: ingredients
+    };
+    console.log(deletedItem);
+    $http({
+      method: 'DELETE',
+      url: 'foodRoutes/favorite/' + deletedItem.label,
+      data: {name: deletedItem.label}
+    }).then(function (response){
+      console.log(response.data)
+      //updates favorites;
+      $scope.favoriteFactory.getFavorites().then(function (response) {
+        $scope.favorites = $scope.favoriteFactory.favorites();
+      });
+      console.log('favorite deleted from DB');
+
+    })
+  };
 
   //animation for the modal transition;
   $scope.animationsEnabled = true;

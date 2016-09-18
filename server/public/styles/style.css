@@ -227,11 +227,23 @@ h5{
 
 /*reslts.html and favorites.html styling*/
 
+.logo-delete{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  opacity: .7;
+}
+
+.logo-delete:hover{
+  opacity: 1;
+}
+
+
 .logo-favorite{
   opacity: .7;
 }
 
-.log-favorite:hover{
+.logo-favorite:hover{
   opacity: 1;
 }
 
