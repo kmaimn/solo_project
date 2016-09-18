@@ -89,8 +89,4 @@ app.controller('HomeController', ['$scope', '$http', 'FoodFactory', 'ArrayFactor
 		$scope.selectedData = selection;
 	};
 
-	$scope.clearInput = function() {
-		$scope.$broadcast('simple-autocomplete:clearInput');
-	};
-
 }]);
