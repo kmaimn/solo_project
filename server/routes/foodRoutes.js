@@ -139,7 +139,7 @@ router.delete('/:name', function (req, res) {
       res.sendStatus(500);
     }
 
-    client.query('DELETE FROM ingredients ' + 'WHERE item = $1', [id.name], function (err, result) {
+    client.query('DELETE FROM inventory ' + 'WHERE item = $1', [id.name], function (err, result) {
       done();
 
       if (err) {
