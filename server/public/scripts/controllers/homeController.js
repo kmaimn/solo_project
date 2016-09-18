@@ -74,11 +74,10 @@ app.controller('HomeController', ['$scope', '$http', 'FoodFactory', 'ArrayFactor
       //updates inventory;
       $scope.foodFactory.getInventory().then(function (response) {
         $scope.pantry = $scope.foodFactory.inventory();
-        $scope.removedItem = '';
       });
       console.log('item deleted from DB');
-
     })
+    $scope.$broadcast('simple-autocomplete:clearInput')
   };
 
   $scope.selectedData = null;
